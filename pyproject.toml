@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "prettify_cli"
+name = "simplicitas"
 version = "0.0.1"
 authors = [
   { name="Just5MoreMinutes", email="just5moreminutez@gmail.com" },
