@@ -1,9 +1,9 @@
 # simplicitas
 
-## 📨 Installing prettify2
+## 📨 Installing simplicitas
 Coming soon:tm:
 
-## ⚙️ Using prettify2
+## ⚙️ Using simplicitas
 Coming soon:tm:
 
 ## 🛠️ Troubleshooting
