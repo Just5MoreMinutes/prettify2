@@ -26,18 +26,18 @@ PRESETS = {
     """
 
 #### COLORS ####
-    'white': list([255, 255, 255]),                 # -> rgb(255, 255, 255)
-    'black': list([0, 0, 0]),                       # -> rgb(0, 0, 0)
-    'light_blue': list([0, 153, 255]),              # -> rgb(0, 153, 255)
-    'blue': list([0, 0, 153]),                      # -> rgb(0, 0, 153)
-    'light_green': list([0, 255, 0]),               # -> rgb(0, 255, 0)
-    'green': list([0, 153, 51]),                    # -> rgb(0, 153, 51)
-    'yellow': list([255, 255, 0]),                  # -> rgb(255, 255, 0)
-    'orange': list([255, 153, 0]),                  # -> rgb(255, 153, 0)
-    'red': list([255, 0, 0]),                       # -> rgb(255, 0, 0)
-    'light_red': list([255, 51, 51]),               # -> rgb(255, 51, 51)
-    'pink': list([255, 51, 153]),                   # -> rgb(255, 51, 153)
-    'purple': list([153, 51, 153]),                 # -> rgb(153, 51, 153)
+    'white': [255, 255, 255],                 # -> rgb(255, 255, 255)
+    'black': [0, 0, 0],                       # -> rgb(0, 0, 0)
+    'light_blue': [0, 153, 255],              # -> rgb(0, 153, 255)
+    'blue': [0, 0, 153],                      # -> rgb(0, 0, 153)
+    'light_green': [0, 255, 0],               # -> rgb(0, 255, 0)
+    'green': [0, 153, 51],                    # -> rgb(0, 153, 51)
+    'yellow': [255, 255, 0],                  # -> rgb(255, 255, 0)
+    'orange': [255, 153, 0],                  # -> rgb(255, 153, 0)
+    'red': [255, 0, 0],                       # -> rgb(255, 0, 0)
+    'light_red': [255, 51, 51],               # -> rgb(255, 51, 51)
+    'pink': [255, 51, 153],                   # -> rgb(255, 51, 153)
+    'purple': [153, 51, 153],                 # -> rgb(153, 51, 153)
 
 #### EFFECTS ####
     'typewriter': typewriter,                       #: for calling typewriter function

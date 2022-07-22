@@ -47,3 +47,14 @@ print(default_success_tag + "<insert success message here>")
 testlist = [1,2,3,4,5,6,7,8,9]
 
 print(testlist[-1])
+
+
+
+
+import time
+import sys
+
+for i in range(100):
+    sys.stdout.write(str(i+1) + '%\r')
+    sys.stdout.flush()
+    time.sleep(0.1)

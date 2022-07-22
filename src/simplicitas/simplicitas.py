@@ -54,7 +54,7 @@ class simplicitas_cli:
         self.table = table      #: if True it will be passed to class table
         self.interactable = interactable    #: if False CLI will work with manual commands
 
-    def setup(self, origin: dict, status=False) -> str:
+    def setup(self, origin: dict, selection_color, status=False, **kwargs) -> str:
         """
         This is required for simplicitas to work. It gets the origin dictionary
         and through there it will recieve all attributes used for the creation of the
@@ -110,6 +110,21 @@ class simplicitas_cli:
             self.header = __headers     
             self.text   = __texts
 
+            try:
+                from presets import PRESETS
+                if selection_color in PRESETS:
+                    return rgb(PRESETS[selection_color[0],PRESETS[selection_color[1]],PRESETS[selection_color[2]]])
+                elif selection_color not in PRESETS:
+                    if 'rgb' or 'hex' in selection_color:
+                        return selection_color
+                    else:
+                        print(default_error_tag + "Please use a default color or the rgb/hex format for custom selection colors!")
+                        exit()
+
+            except ImportError:
+
+                selection_color = rgb(0, 153, 51)
+
     
     def extra(self, multiple_origin=False, **kwargs):
 
@@ -118,11 +133,9 @@ class simplicitas_cli:
 
             #: run through setup() again with the new dicts
             for i in origins:
-                
+
                 #: pass dicts into self.setup()
                 self.setup(origin=i, status=False)
-
-        
 
 
 #: initialize class
@@ -130,7 +143,46 @@ simplicitas_cli = simplicitas_cli('','')
 
 
 
+class create(simplicitas_cli):
+    def __init__(self, header: str, text: str, seperator: str, table=False, interactable=True):
+        super().__init__(header, text, seperator, table, interactable)
 
+    def backend(self):
+
+        up      = '\033[A'       #: Arrow key up
+        down    = '\033[B'       #: Arrow key down
+        right   = '\033[C'       #: Arrow key right
+        left    = '\033[D'       #: Arrow key left
+
+        try: from pynput import keyboard
+        except ImportError: print(default_error_tag + "Fatal import failed (pynput/keyboard).")
+
+        def on_press(key):
+
+            if key == keyboard.Key.up:
+                return up
+            
+            if key == keyboard.Key.down:
+                return down
+
+            if key == keyboard.Key.right:
+                return right
+
+            if key == keyboard.Key.left:
+                return left
+
+            if key == keyboard.Key.esc:
+                return exit(default_info_tag + "Program exited!")
+            
+            if key == keyboard.Key.enter:
+                pass            #: supposed to get next view/execute function
+
+        with keyboard.Listener(on_press=on_press) as listener:
+            listener.join()
+
+            sys.stdout.write(simplicitas_cli.setup.selection_color + self.text)
+            sys.stdout.flush()
+        
 
 
 
