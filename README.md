@@ -1,5 +1,7 @@
 # simplicitas
 *ANNOUNCEMENT*: simplicitas alpha will be releasing soon!
+
+*NOTE*: Current version not confirmed to be functional
 ## 📨 Installing simplicitas
 Coming soon:tm:
 
