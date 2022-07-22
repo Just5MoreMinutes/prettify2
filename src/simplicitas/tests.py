@@ -44,9 +44,6 @@ print(default_success_tag + "<insert success message here>")
 
 
 
-var = 1
+testlist = [1,2,3,4,5,6,7,8,9]
 
-print(type(var))
-print("------------------")
-var = str(var)
-print(type(var))
+print(testlist[-1])

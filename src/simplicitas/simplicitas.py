@@ -48,7 +48,7 @@ default_success_tag=rgb(192,192,192) + "[" + rgb(0,255,0) + "SUCCESS" + rgb(192,
 #    SETUP   #
 #____________#
 class simplicitas_cli:
-    def __init__(self, header, text: str, table=False, interactable=True):
+    def __init__(self, header: str, text: str, seperator: str, table=False, interactable=True):
         self.header = header    #: requires header definition in given dict
         self.text = text        #: requires text definition in given dict
         self.table = table      #: if True it will be passed to class table
@@ -106,7 +106,31 @@ class simplicitas_cli:
                     #: print success info if status is set to True (False by default)
                     print("\n"+default_success_tag+"Found all elements!") if status == True else None
 
+            #: set header and text elements to corresponding lists for later use
+            self.header = __headers     
+            self.text   = __texts
+
+    
+    def extra(self, multiple_origin=False, **kwargs):
+
+        if multiple_origin == True:
+            origins = [str]             # -> simplicitas_cli.extra(multiple_origin=True, origins=[<dict>,<dict>])       //      sorted chronologically
+
+            #: run through setup() again with the new dicts
+            for i in origins:
+                
+                #: pass dicts into self.setup()
+                self.setup(origin=i, status=False)
+
+        
+
+
+#: initialize class
 simplicitas_cli = simplicitas_cli('','')
+
+
+
+
 
 
 
