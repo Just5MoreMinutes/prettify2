@@ -1,0 +1,60 @@
+class simplicitas:
+    def __init__(self, text):
+        self.text = str(text)
+
+
+
+    def println(self, text, multi_color=False, *args, **kwargs):
+        color = kwargs.get('color', None)                   #: sets up optional parameter color
+        import presets as p                 #: imports presets file
+        if color != None:
+            return rgb(p.PRESETS[color[[i for i in p.PRESETS[color]]]])
+        effects = kwargs.get('effects', None)
+        if effects != None:
+            return p.PRESETS[effects]()                     #: runs function in presets.py
+
+s = simplicitas('')
+
+
+
+
+
+
+
+
+class error_wrapper:
+    def __init__(self, ERROR_TYPE):
+        self.ERROR_TYPE = ERROR_TYPE
+
+    def err_out(self,m,msg):
+        m = rgb(192,192,192) + "[" + rgb(255,0,0) + "ERROR" + rgb(192,192,192) + "]"
+        from presets import ERR_TYPES as errt
+        msg = errt[self.ERROR_TYPE]
+        return m + msg
+
+
+
+
+
+
+
+
+
+import os
+import time
+import sys
+
+toolbar_width = 40
+
+# setup toolbar
+sys.stdout.write("<%s>" % (" " * toolbar_width))
+sys.stdout.flush()
+sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
+
+for i in range(toolbar_width):
+    time.sleep(0.1) # do real work here
+    # update the bar
+    sys.stdout.write("=")
+    sys.stdout.flush()
+
+sys.stdout.write("]\n") # this ends the progress bar

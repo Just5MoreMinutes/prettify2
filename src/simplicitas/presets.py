@@ -16,6 +16,10 @@ def typewriter(*args, **kwargs) -> str:
         sys.stdout.flush()
         sleep(float(speed))
 
+
+
+
+
 PRESETS = {
     """
     Colors that can be used in the "colors" parameter without having to use a rgb/hex code
@@ -38,3 +42,17 @@ PRESETS = {
 #### EFFECTS ####
     'typewriter': typewriter,                       #: for calling typewriter function
 }
+
+
+ERR_TYPES = {
+    "WRONG_ORIGIN": "'origin' must be of type dict.",
+    "I/O": "Given input cannot be used as an output.",
+}
+
+
+#   DECORATORS   #
+underline:          str = '\033[4m'
+bold:               str = '\033[1m'
+blink:              str = '\033[5m'
+framed:             str = '\033[51m'
+encircled:          str = '\033[52m'
